@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mauricio Mata Patching Services — Drywall, Stucco &amp; Paint, Orange CA</title>
+<meta name="description" content="Drywall, stucco and paint repair in Orange, CA. 5.0 stars from 59 Yelp reviews. Workmanship guaranteed, locally owned, se habla español.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --plaster: #DCD2BC;
+    --plaster-deep: #CBBE9E;
+    --panel: #F1EBDC;
+    --mortar: #221F1A;
+    --steel: #6E6656;
+    --steel-soft: #8B8266;
+    --clay: #AB5B33;
+    --clay-deep: #7E3E1E;
+    --paint-white: #F7F3E9;
+    --line: rgba(34,31,26,0.14);
+    --radius-s: 6px;
+    --radius-m: 14px;
+    --maxw: 1180px;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background: var(--plaster);
+    color: var(--mortar);
+    font-family: 'Work Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,h2,h3{
+    font-family: 'Zilla Slab', serif;
+    margin: 0;
+    line-height: 1.08;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  p{ margin: 0; }
+  a{ color: inherit; text-decoration: none; }
+  ul{ margin:0; padding:0; list-style:none; }
+  img,svg{ display:block; max-width:100%; }
+  button{ font-family: inherit; }
+
+  .wrap{ width: 100%; max-width: var(--maxw); margin: 0 auto; padding: 0 32px; }
+  section{ position: relative; }
+
+  :focus-visible{ outline: 3px solid var(--clay); outline-offset: 3px; }
+
+  .visually-hidden{ position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0 0 0 0); white-space:nowrap; }
+
+  /* ---------- texture filters (applied via CSS filter:url) ---------- */
+  .defs-holder{ position:absolute; width:0; height:0; overflow:hidden; }
+
+  .grain{ position:relative; }
+  .grain::after{
+    content:"";
+    position:absolute; inset:0;
+    background: var(--mortar);
+    filter: url(#fine-grain);
+    opacity:.05;
+    mix-blend-mode: multiply;
+    pointer-events:none;
+    border-radius: inherit;
+  }
+
+  /* ================= NAV ================= */
+  .nav{
+    position: sticky; top:0; z-index: 50;
+    background: rgba(220,210,188,0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+  }
+  .nav .wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    padding-top:16px; padding-bottom:16px;
+  }
+  .brand{ display:flex; flex-direction:column; gap:2px; }
+  .brand-name{ font-family:'Zilla Slab',serif; font-weight:600; font-size:1.15rem; }
+  .brand-sub{ font-size:.72rem; color: var(--steel); letter-spacing:.03em; }
+  .nav-links{ display:flex; gap:32px; }
+  .nav-links a{
+    font-size:.92rem; font-weight:500; color: var(--mortar);
+    padding-bottom:2px; border-bottom:1px solid transparent;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .nav-links a:hover{ border-color: var(--clay); color: var(--clay-deep); }
+  .nav-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background: var(--mortar); color: var(--paint-white);
+    padding:10px 18px; border-radius: var(--radius-s);
+    font-size:.88rem; font-weight:600;
+    transition: background .2s ease, transform .2s ease;
+  }
+  .nav-cta:hover{ background: var(--clay-deep); transform: translateY(-1px); }
+  .nav-cta svg{ width:15px; height:15px; }
+
+  @media (max-width: 760px){
+    .nav-links{ display:none; }
+  }
+
+  /* ================= HERO ================= */
+  .hero{ padding: 64px 0 56px; overflow: hidden; }
+  .hero .wrap{
+    display:grid;
+    grid-template-columns: 1.05fr 1fr;
+    gap: 56px;
+    align-items:center;
+  }
+
+  .heal-mark{ width:64px; height:64px; margin-bottom: 22px; }
+  .heal-mark .crack{
+    fill:none; stroke: var(--clay-deep); stroke-width:2.4; stroke-linecap:round;
+    stroke-dasharray: 140; stroke-dashoffset: 140;
+    animation: draw-crack 0.9s ease-out .15s forwards;
+  }
+  .heal-mark .patch{
+    transform-origin: 32px 32px;
+    transform: scale(0);
+    animation: patch-in 0.5s cubic-bezier(.34,1.56,.64,1) 1s forwards;
+  }
+  @keyframes draw-crack{ to{ stroke-dashoffset: 0; } }
+  @keyframes patch-in{ to{ transform: scale(1); } }
+
+  .hero h1{
+    font-size: clamp(2.4rem, 4.6vw, 3.6rem);
+    max-width: 12.5ch;
+  }
+  .hero-sub{
+    margin-top: 20px;
+    max-width: 46ch;
+    font-size: 1.05rem;
+    color: #3B372E;
+  }
+  .hero-ctas{ display:flex; align-items:center; gap:22px; margin-top: 30px; flex-wrap:wrap; }
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background: var(--clay); color: var(--paint-white);
+    padding: 14px 24px; border-radius: var(--radius-s);
+    font-weight:600; font-size: .98rem;
+    box-shadow: 0 6px 18px -8px rgba(126,62,30,.55);
+    transition: background .2s ease, transform .2s ease;
+  }
+  .btn-primary:hover{ background: var(--clay-deep); transform: translateY(-1px); }
+  .btn-primary svg{ width:16px; height:16px; }
+  .link-secondary{
+    font-weight:600; font-size:.95rem; color: var(--mortar);
+    border-bottom: 1px solid var(--steel-soft);
+    padding-bottom: 2px;
+    transition: border-color .2s ease;
+  }
+  .link-secondary:hover{ border-color: var(--mortar); }
+
+  .hero-badges{ display:flex; gap:14px; margin-top: 34px; flex-wrap:wrap; }
+  .hero-badge{
+    font-size:.78rem; font-weight:500; color: var(--steel);
+    background: var(--panel); border:1px solid var(--line);
+    padding: 6px 12px; border-radius: 999px;
+  }
+
+  /* ---- before/after slider ---- */
+  .slider-block{ display:flex; flex-direction:column; gap:10px; }
+  .slider{
+    position: relative;
+    aspect-ratio: 5 / 4;
+    border-radius: var(--radius-m);
+    overflow: hidden;
+    border: 1px solid var(--line);
+    box-shadow: 0 24px 48px -24px rgba(34,31,26,.4);
+    cursor: ew-resize;
+    touch-action: pan-y;
+  }
+  .slide-layer{
+    position:absolute; inset:0;
+  }
+  .wall-before{
+    background:
+      radial-gradient(120% 90% at 30% 20%, #d9cdac 0%, #cabc99 55%, #b7a984 100%);
+  }
+  .wall-before::before{
+    content:""; position:absolute; inset:0;
+    filter: url(#rough-stucco);
+    background: #b7a984;
+    opacity:.5;
+  }
+  .crack-svg{ position:absolute; inset:0; width:100%; height:100%; }
+  .crack-svg path{
+    fill:none; stroke: #6a5a3f; stroke-width:2; stroke-linecap:round; opacity:.75;
+  }
+  .crack-svg path.hairline{ stroke-width:1; opacity:.5; }
+
+  .wall-after{
+    background: linear-gradient(115deg, #F7F3E9 0%, #EFE7D6 45%, #F4EEDF 100%);
+  }
+  .wall-after::before{
+    content:""; position:absolute; inset:0;
+    background: repeating-linear-gradient(100deg, rgba(34,31,26,0.025) 0 3px, transparent 3px 9px);
+  }
+  .patch-scar{
+    position:absolute; left:38%; top:34%; width:30%; height:26%;
+    border-radius:46% 54% 51% 49% / 53% 47% 53% 47%;
+    border: 1px dashed rgba(126,62,30,.28);
+    opacity:.55;
+  }
+  .layer-after{
+    clip-path: polygon(var(--pos,50%) 0, 100% 0, 100% 100%, var(--pos,50%) 100%);
+  }
+  .slider-handle{
+    position:absolute; top:0; bottom:0;
+    left: var(--pos,50%);
+    width:0; transform: translateX(-50%);
+    pointer-events:none;
+  }
+  .slider-handle::before{
+    content:""; position:absolute; top:0; bottom:0; left:50%;
+    width:2px; background: var(--paint-white);
+    transform: translateX(-50%);
+    box-shadow: 0 0 0 1px rgba(34,31,26,.25);
+  }
+  .slider-grip{
+    position:absolute; top:50%; left:50%;
+    transform: translate(-50%,-50%);
+    width:44px; height:44px; border-radius:50%;
+    background: var(--paint-white);
+    border: 1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow: 0 8px 18px -8px rgba(34,31,26,.5);
+  }
+  .slider-grip svg{ width:18px; height:18px; color: var(--clay-deep); }
+  .slider-tag{
+    position:absolute; top:14px; left:14px;
+    font-size:.72rem; font-weight:600; color: var(--paint-white);
+    background: rgba(34,31,26,.55); padding:5px 10px; border-radius: 999px;
+  }
+  .slider-tag.right{ left:auto; right:14px; }
+
+  .slider-range{
+    position:absolute; inset:0; width:100%; height:100%;
+    margin:0; opacity:0; cursor: ew-resize;
+    -webkit-appearance: none; appearance: none;
+  }
+  .slider-caption{ font-size:.82rem; color: var(--steel); padding-left:2px; }
+
+  /* ================= TRUST STRIP ================= */
+  .trust{ background: var(--panel); border-top:1px solid var(--line); border-bottom:1px solid var(--line); padding: 26px 0; }
+  .trust .wrap{
+    display:grid; grid-template-columns: repeat(4,1fr); gap: 20px;
+  }
+  .trust-item{ display:flex; align-items:flex-start; gap:12px; }
+  .trust-item svg{ width:22px; height:22px; color: var(--clay-deep); flex-shrink:0; margin-top:2px; }
+  .trust-item strong{ display:block; font-size:.92rem; font-weight:600; }
+  .trust-item span{ font-size:.8rem; color: var(--steel); }
+
+  @media (max-width: 900px){
+    .trust .wrap{ grid-template-columns: repeat(2,1fr); }
+  }
+
+  /* ================= SECTION HEADERS ================= */
+  .section-pad{ padding: 88px 0; }
+  .section-head{ max-width: 56ch; margin-bottom: 52px; }
+  .section-head h2{ font-size: clamp(1.9rem, 3.2vw, 2.5rem); }
+  .section-head p{ margin-top:14px; color: var(--steel); font-size: 1.02rem; }
+
+  /* ================= SERVICES ================= */
+  .services-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+  }
+  .service-card{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-m);
+    overflow:hidden;
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .service-card:hover{ transform: translateY(-4px); box-shadow: 0 20px 34px -22px rgba(34,31,26,.45); }
+  .service-swatch{ height: 108px; position:relative; }
+  .swatch-drywall{ background: linear-gradient(160deg,#E7DFCB,#D3C6A5); }
+  .swatch-drywall::after{ content:""; position:absolute; inset:0; filter:url(#fine-grain); background:#D3C6A5; opacity:.4; }
+  .swatch-stucco{ background: linear-gradient(160deg,#CBB98F,#AE9A6C); }
+  .swatch-stucco::after{ content:""; position:absolute; inset:0; filter:url(#rough-stucco); background:#AE9A6C; opacity:.55; }
+  .swatch-paint{ background: repeating-linear-gradient(100deg, #F4EEDF 0 14px, #EDE4CE 14px 28px); }
+  .service-body{ padding: 24px 26px 28px; }
+  .service-body h3{ font-size: 1.22rem; margin-bottom:10px; }
+  .service-body p{ font-size:.94rem; color: #4A4536; }
+  .service-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:16px; }
+  .service-tag{ font-size:.72rem; color: var(--steel); background: var(--plaster); border:1px solid var(--line); padding:4px 9px; border-radius:999px; }
+
+  @media (max-width: 900px){ .services-grid{ grid-template-columns: 1fr; } }
+
+  /* ================= PROCESS ================= */
+  .process-list{ display:flex; flex-direction:column; }
+  .process-item{
+    display:grid; grid-template-columns: 64px 1fr; gap: 22px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+  }
+  .process-item:last-child{ border-bottom: 1px solid var(--line); }
+  .process-num{
+    font-family:'Zilla Slab',serif; font-size:1.5rem; font-weight:600;
+    color: var(--clay-deep);
+  }
+  .process-item h3{ font-size:1.12rem; margin-bottom:6px; }
+  .process-item p{ color: var(--steel); font-size:.95rem; max-width: 62ch; }
+
+  /* ================= REVIEWS ================= */
+  .reviews-top{ display:flex; align-items:baseline; gap:18px; flex-wrap:wrap; margin-bottom: 46px; }
+  .rating-big{ font-family:'Zilla Slab',serif; font-size:3rem; font-weight:700; color: var(--clay-deep); }
+  .stars{ color: var(--clay-deep); font-size:1.1rem; letter-spacing:2px; }
+  .reviews-top .meta{ color: var(--steel); font-size:.92rem; }
+
+  .reviews-grid{
+    display:grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+  }
+  .review-card{
+    background: var(--panel); border:1px solid var(--line);
+    border-radius: var(--radius-m); padding: 26px;
+  }
+  .review-card p{ font-size:.98rem; color:#302C22; }
+  .review-card footer{ margin-top:18px; font-size:.82rem; color: var(--steel); font-weight:500; }
+
+  @media (max-width: 940px){ .reviews-grid{ grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 660px){ .reviews-grid{ grid-template-columns: 1fr; } }
+
+  /* ================= CONTACT ================= */
+  .contact{ background: var(--mortar); color: var(--paint-white); }
+  .contact .wrap{
+    display:grid; grid-template-columns: 1.1fr 1fr; gap: 60px;
+    padding-top: 88px; padding-bottom: 70px;
+  }
+  .contact h2{ color: var(--paint-white); font-size: clamp(1.9rem,3.2vw,2.5rem); max-width: 14ch; }
+  .contact-sub{ margin-top:16px; color: #C9C0AA; max-width: 42ch; font-size:1rem; }
+  .contact .btn-primary{ margin-top: 30px; }
+  .contact-note{ margin-top:16px; font-size:.85rem; color:#A79E85; }
+
+  .info-panel{ display:flex; flex-direction:column; gap:26px; }
+  .info-block h4{ font-size:.78rem; letter-spacing:.04em; color:#A79E85; font-weight:600; margin-bottom:10px; text-transform: uppercase; }
+  .hours-row{ display:flex; justify-content:space-between; font-size:.9rem; padding:5px 0; border-bottom:1px solid rgba(247,243,233,.08); }
+  .hours-row span:first-child{ color:#C9C0AA; }
+  .addr{ font-size:.95rem; color:#EFE9DA; line-height:1.5; }
+
+  .pin{ width:34px; height:34px; margin-bottom:10px; }
+  .pin circle{ fill:none; stroke:#A79E85; stroke-width:1; opacity:.5; }
+  .pin path{ fill: var(--clay); }
+
+  @media (max-width: 900px){
+    .contact .wrap{ grid-template-columns: 1fr; gap: 44px; padding-top:64px; padding-bottom:56px; }
+  }
+
+  .footer-bar{
+    border-top: 1px solid rgba(247,243,233,.1);
+  }
+  .footer-bar .wrap{
+    display:flex; justify-content:space-between; align-items:center;
+    padding: 20px 0; font-size:.8rem; color:#8F865E; flex-wrap:wrap; gap:10px;
+  }
+  .footer-bar a{ color:#C9C0AA; }
+  .footer-bar a:hover{ color: var(--paint-white); }
+
+  /* ================= HERO RESPONSIVE ================= */
+  @media (max-width: 900px){
+    .hero .wrap{ grid-template-columns: 1fr; }
+    .hero{ padding-top: 44px; }
+  }
+
+  /* ================= SCROLL ANIMATIONS ================= */
+  .reveal{
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity .6s ease, transform .6s ease;
+    transition-delay: var(--rd, 0s);
+  }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
+
+  .trust-item.reveal{ transform: translateY(10px) scale(.92); }
+  .trust-item.reveal.is-visible{ transform: translateY(0) scale(1); }
+
+  .service-card .service-swatch{
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path .8s cubic-bezier(.22,.9,.32,1);
+    transition-delay: calc(var(--rd, 0s) + .1s);
+  }
+  .service-card.is-visible .service-swatch{ clip-path: inset(0 0 0 0); }
+
+  .services-grid .service-card:nth-child(1){ --rd: 0s; }
+  .services-grid .service-card:nth-child(2){ --rd: .12s; }
+  .services-grid .service-card:nth-child(3){ --rd: .24s; }
+
+  .reviews-grid .review-card:nth-child(1){ --rd: 0s; }
+  .reviews-grid .review-card:nth-child(2){ --rd: .08s; }
+  .reviews-grid .review-card:nth-child(3){ --rd: .16s; }
+  .reviews-grid .review-card:nth-child(4){ --rd: .24s; }
+  .reviews-grid .review-card:nth-child(5){ --rd: .32s; }
+  .reviews-grid .review-card:nth-child(6){ --rd: .4s; }
+
+  .trust .trust-item:nth-child(1){ --rd: 0s; }
+  .trust .trust-item:nth-child(2){ --rd: .08s; }
+  .trust .trust-item:nth-child(3){ --rd: .16s; }
+  .trust .trust-item:nth-child(4){ --rd: .24s; }
+
+  /* a seam that fills in as you scroll through the process list, the way joint
+     compound settles into a crack once it's been worked in */
+  .process-list{ position: relative; }
+  .seam-track{
+    position: absolute; top: 0; bottom: 0; left: 31px; width: 2px;
+    background: var(--line);
+  }
+  .seam-fill{
+    position: absolute; top: 0; left: 31px; width: 2px; height: 0%;
+    background: var(--clay-deep);
+  }
+  .process-num{ position: relative; z-index: 1; }
+
+  .slider-block{ will-change: transform; }
+
+  @media (prefers-reduced-motion: reduce){
+    .heal-mark .crack{ animation: none; stroke-dashoffset:0; }
+    .heal-mark .patch{ animation: none; transform: scale(1); }
+    html{ scroll-behavior: auto; }
+    .reveal{ opacity:1; transform:none; transition:none; }
+    .service-card .service-swatch{ clip-path: inset(0 0 0 0); transition:none; }
+    .seam-fill{ transition:none; }
+    .slider-block{ transform:none !important; }
+  }
+</style>
+</head>
+<body>
+
+<svg class="defs-holder" aria-hidden="true">
+  <defs>
+    <filter id="fine-grain" x="-5%" y="-5%" width="110%" height="110%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0.9 0.9 0 0"/>
+    </filter>
+    <filter id="rough-stucco" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.045 0.09" numOctaves="3" seed="7" stitchTiles="stitch" result="n"/>
+      <feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.8 0.8 0.8 0 0"/>
+    </filter>
+  </defs>
+</svg>
+
+<header class="nav">
+  <div class="wrap">
+    <div class="brand">
+      <span class="brand-name">Mauricio Mata</span>
+      <span class="brand-sub">Patching Services — Orange, CA</span>
+    </div>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="nav-cta" href="tel:+17147183316">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      (714) 718-3316
+    </a>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <svg class="heal-mark" viewBox="0 0 64 64" aria-hidden="true">
+          <path class="crack" d="M10 12 L24 26 L18 34 L34 44 L28 52" />
+          <rect class="patch" x="14" y="20" width="26" height="26" rx="7" fill="var(--clay)"/>
+        </svg>
+
+        <h1>Every wall has a story. We give it a clean ending.</h1>
+        <p class="hero-sub">Drywall, stucco and paint repaired by hand — patched, textured and color-matched until the damage disappears completely. Locally owned in Orange, workmanship guaranteed.</p>
+
+        <div class="hero-ctas">
+          <a class="btn-primary" href="tel:+17147183316">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call for a free estimate
+          </a>
+          <a class="link-secondary" href="#process">See how a repair goes</a>
+        </div>
+
+        <div class="hero-badges">
+          <span class="hero-badge">5.0 stars · 59 Yelp reviews</span>
+          <span class="hero-badge">Workmanship guaranteed</span>
+          <span class="hero-badge">Se habla Español</span>
+        </div>
+      </div>
+
+      <div class="slider-block">
+        <div class="slider" id="baSlider" style="--pos:50%">
+          <div class="slide-layer wall-before">
+            <svg class="crack-svg" viewBox="0 0 400 320" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M40 40 L120 95 L95 150 L170 190 L150 260" />
+              <path class="hairline" d="M120 95 L160 70" />
+              <path class="hairline" d="M170 190 L220 175" />
+              <path d="M260 30 L300 80 L275 130" />
+            </svg>
+          </div>
+          <div class="slide-layer wall-after layer-after">
+            <div class="patch-scar"></div>
+          </div>
+          <div class="slider-handle">
+            <div class="slider-grip">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
+            </div>
+          </div>
+          <span class="slider-tag">Damage</span>
+          <span class="slider-tag right">Repaired</span>
+          <input class="slider-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare damaged wall and repaired wall">
+        </div>
+        <p class="slider-caption">Drag the slider — this is the kind of patch that disappears.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= TRUST STRIP ================= -->
+  <section class="trust">
+    <div class="wrap">
+      <div class="trust-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17.3 5.7 20.9l1.7-7L2 9.2l7.1-.6z"/></svg>
+        <div><strong>5.0 rating</strong><span>From 59 Yelp reviews</span></div>
+      </div>
+      <div class="trust-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
+        <div><strong>Guaranteed</strong><span>Repairs & workmanship guarantee</span></div>
+      </div>
+      <div class="trust-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
+        <div><strong>Locally owned</strong><span>Based in Orange, CA</span></div>
+      </div>
+      <div class="trust-item reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        <div><strong>Se habla Español</strong><span>Bilingual on every job</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="section-pad" id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>Three trades, one seamless finish</h2>
+        <p>Most jobs touch all three — a hole gets patched, textured to match, then painted so the wall looks like it was never opened up.</p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card reveal">
+          <div class="service-swatch swatch-drywall"></div>
+          <div class="service-body">
+            <h3>Drywall Repair &amp; Installation</h3>
+            <p>Holes, water damage, closets torn down to the studs — patched, taped and textured to blend into the surrounding wall.</p>
+            <div class="service-tags">
+              <span class="service-tag">Wall patching</span>
+              <span class="service-tag">Texture matching</span>
+              <span class="service-tag">New installation</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-swatch swatch-stucco"></div>
+          <div class="service-body">
+            <h3>Stucco Repair</h3>
+            <p>Cracks, new door and window installs, closed-off dog doors — stucco matched in texture and color so the patch never shows.</p>
+            <div class="service-tags">
+              <span class="service-tag">Crack repair</span>
+              <span class="service-tag">Color matching</span>
+              <span class="service-tag">Plaster work</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
+          <div class="service-swatch swatch-paint"></div>
+          <div class="service-body">
+            <h3>Interior &amp; Exterior Painting</h3>
+            <p>Same-day color matching, full rooms or ceilings, and finish coats after a repair so nothing looks touched up.</p>
+            <div class="service-tags">
+              <span class="service-tag">Color matching</span>
+              <span class="service-tag">Interior painting</span>
+              <span class="service-tag">Touch-up coats</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="section-pad" id="process" style="background:var(--plaster-deep)">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <h2>How a repair goes, start to finish</h2>
+        <p>The same process whether it's a fist-sized hole or a full room — nothing skipped, nothing rushed.</p>
+      </div>
+
+      <div class="process-list" id="processList">
+        <div class="seam-track"></div>
+        <div class="seam-fill" id="seamFill"></div>
+        <div class="process-item">
+          <div class="process-num">01</div>
+          <div><h3>Tell us what happened</h3><p>Call, text or send a photo of the damage — cracked stucco, a hole in the drywall, whatever it is.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">02</div>
+          <div><h3>Get a same-day estimate</h3><p>Mauricio comes out and quotes the job in person, usually within a few hours of reaching out.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">03</div>
+          <div><h3>Patch and texture-match</h3><p>Drywall or stucco is repaired and textured to match what's already on the wall around it.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">04</div>
+          <div><h3>Paint to match</h3><p>When painting's part of the job, color is mixed and matched on the spot — often the same day.</p></div>
+        </div>
+        <div class="process-item">
+          <div class="process-num">05</div>
+          <div><h3>Clean handoff</h3><p>Floors and furniture are protected throughout, and the job site is cleaned before the crew leaves.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= REVIEWS ================= -->
+  <section class="section-pad" id="reviews">
+    <div class="wrap">
+      <div class="reviews-top reveal">
+        <span class="rating-big">5.0</span>
+        <div>
+          <div class="stars">★★★★★</div>
+          <span class="meta">59 reviews on Yelp</span>
+        </div>
+      </div>
+
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <p>"Fixed a window conversion a previous contractor botched — the patch was invisible when he finished."</p>
+          <footer>James L. — Irvine, CA</footer>
+        </div>
+        <div class="review-card reveal">
+          <p>"Matched our ceiling paint at Home Depot the same day. Done in under two hours and looked perfect."</p>
+          <footer>Paul F. — Rancho Santa Margarita, CA</footer>
+        </div>
+        <div class="review-card reveal">
+          <p>"Explained exactly what needed to happen, then caught and fixed a stucco gap the door installer left behind."</p>
+          <footer>Jennifer B. — Santa Ana, CA</footer>
+        </div>
+        <div class="review-card reveal">
+          <p>"Closed off a dog door in the wall, inside and out — you'd never know it was ever there."</p>
+          <footer>Carla M. — Huntington Beach, CA</footer>
+        </div>
+        <div class="review-card reveal">
+          <p>"This is our third project with his crew. Every time, the patchwork disappears into the wall."</p>
+          <footer>Tiffany P. — Monterey Park, CA</footer>
+        </div>
+        <div class="review-card reveal">
+          <p>"Repaired our fascia and stucco right on the front of the house. Blends in perfectly — you can't tell."</p>
+          <footer>Anna Y. — Santa Ana, CA</footer>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div>
+        <h2>Get a free estimate</h2>
+        <p class="contact-sub">Send a photo of the damage or just describe it over the phone. Most estimates happen the same day, in person.</p>
+        <a class="btn-primary" href="tel:+17147183316">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          (714) 718-3316
+        </a>
+        <p class="contact-note">Typically responds within a few hours · Credit cards &amp; cryptocurrency accepted</p>
+      </div>
+
+      <div class="info-panel">
+        <div class="info-block">
+          <svg class="pin" viewBox="0 0 34 34" aria-hidden="true">
+            <circle cx="17" cy="17" r="15"/>
+            <circle cx="17" cy="17" r="9"/>
+            <path d="M17 8c-4 0-7 3-7 7 0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 17 12a2.5 2.5 0 0 1 0 5.5z"/>
+          </svg>
+          <h4>Location</h4>
+          <p class="addr">2001 N Lincoln St<br>Orange, CA 92865<br>Serving the greater Orange area</p>
+        </div>
+
+        <div class="info-block">
+          <h4>Hours</h4>
+          <div class="hours-row"><span>Monday</span><span>8:00 AM – 6:30 PM</span></div>
+          <div class="hours-row"><span>Tuesday – Friday</span><span>8:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span>Saturday – Sunday</span><span>8:00 AM – 4:00 PM</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <div class="wrap">
+        <span>Mauricio Mata Patching Services · Orange, CA</span>
+        <a href="http://mauriciopatching.com" target="_blank" rel="noopener">mauriciopatching.com</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+  (function(){
+    var slider = document.getElementById('baSlider');
+    var range = document.getElementById('baRange');
+    function setPos(v){ slider.style.setProperty('--pos', v + '%'); }
+    range.addEventListener('input', function(){ setPos(range.value); });
+
+    // allow dragging anywhere on the slider, not just on the native thumb
+    var dragging = false;
+    function posFromEvent(clientX){
+      var rect = slider.getBoundingClientRect();
+      var pct = ((clientX - rect.left) / rect.width) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      return pct;
+    }
+    function updateFromClientX(clientX){
+      var pct = posFromEvent(clientX);
+      range.value = pct;
+      setPos(pct);
+    }
+    slider.addEventListener('pointerdown', function(e){
+      dragging = true;
+      updateFromClientX(e.clientX);
+      slider.setPointerCapture && slider.setPointerCapture(e.pointerId);
+    });
+    slider.addEventListener('pointermove', function(e){
+      if(!dragging) return;
+      updateFromClientX(e.clientX);
+    });
+    slider.addEventListener('pointerup', function(){ dragging = false; });
+    slider.addEventListener('pointercancel', function(){ dragging = false; });
+  })();
+</script>
+
+<script>
+  (function(){
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var revealEls = document.querySelectorAll('.reveal');
+    var seamFill = document.getElementById('seamFill');
+    var processList = document.getElementById('processList');
+    var heroVisual = document.querySelector('.slider-block');
+    var hero = document.querySelector('.hero');
+
+    if(reduceMotion){
+      revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+      if(seamFill) seamFill.style.height = '100%';
+      return;
+    }
+
+    // fade + rise into place the first time each element crosses into view
+    if('IntersectionObserver' in window){
+      var observer = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.18, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function(el){ observer.observe(el); });
+    } else {
+      revealEls.forEach(function(el){ el.classList.add('is-visible'); });
+    }
+
+    // a seam of clay fills in as the process steps scroll past, like a
+    // crack being worked closed
+    function updateSeam(){
+      if(!processList || !seamFill) return;
+      var rect = processList.getBoundingClientRect();
+      var referenceLine = window.innerHeight * 0.72;
+      var pct = ((referenceLine - rect.top) / rect.height) * 100;
+      pct = Math.max(0, Math.min(100, pct));
+      seamFill.style.height = pct + '%';
+    }
+
+    // the hero photo drifts a few px slower than the page, like it's set
+    // slightly behind the glass
+    function updateParallax(){
+      if(!heroVisual || !hero) return;
+      var rect = hero.getBoundingClientRect();
+      if(rect.bottom < 0 || rect.top > window.innerHeight){ return; }
+      var shift = Math.max(-24, Math.min(24, rect.top * -0.06));
+      heroVisual.style.transform = 'translateY(' + shift + 'px)';
+    }
+
+    var ticking = false;
+    function onScroll(){
+      if(ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function(){
+        updateSeam();
+        updateParallax();
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    updateSeam();
+    updateParallax();
+  })();
+</script>
+
+</body>
+</html>
