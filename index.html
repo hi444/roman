@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mauricio Mata Patching Services — Drywall, Stucco &amp; Paint, Orange CA</title>
-<meta name="description" content="Drywall, stucco and paint repair in Orange, CA. 5.0 stars from 59 Yelp reviews. Workmanship guaranteed, locally owned, se habla español.">
+<title>Roman Pro Painting — Exterior, Interior, Siding &amp; Gutters, Anaheim CA</title>
+<meta name="description" content="Exterior and interior painting, siding and gutter services in Anaheim, CA. 4.9 stars from 57 Yelp reviews. Verified license, ASL proficient, 20 years of experience.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:wght@400;500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -131,7 +131,7 @@
 
   .hero h1{
     font-size: clamp(2.4rem, 4.6vw, 3.6rem);
-    max-width: 12.5ch;
+    max-width: 13ch;
   }
   .hero-sub{
     margin-top: 20px;
@@ -192,9 +192,12 @@
   }
   .crack-svg{ position:absolute; inset:0; width:100%; height:100%; }
   .crack-svg path{
-    fill:none; stroke: #6a5a3f; stroke-width:2; stroke-linecap:round; opacity:.75;
+    fill:none; stroke: #6a5a3f; stroke-width:2; stroke-linecap:round; opacity:.6;
   }
-  .crack-svg path.hairline{ stroke-width:1; opacity:.5; }
+  .crack-svg path.hairline{ stroke-width:1; opacity:.45; }
+  .crack-svg path.peel{
+    fill: rgba(106,90,63,.35); stroke: #6a5a3f; stroke-width:1.5;
+  }
 
   .wall-after{
     background: linear-gradient(115deg, #F7F3E9 0%, #EFE7D6 45%, #F4EEDF 100%);
@@ -404,8 +407,8 @@
   .trust .trust-item:nth-child(3){ --rd: .16s; }
   .trust .trust-item:nth-child(4){ --rd: .24s; }
 
-  /* a seam that fills in as you scroll through the process list, the way joint
-     compound settles into a crack once it's been worked in */
+  /* a seam that fills in as you scroll through the process list, the way
+     a fresh coat settles once it's been rolled on */
   .process-list{ position: relative; }
   .seam-track{
     position: absolute; top: 0; bottom: 0; left: 31px; width: 2px;
@@ -448,8 +451,8 @@
 <header class="nav">
   <div class="wrap">
     <div class="brand">
-      <span class="brand-name">Mauricio Mata</span>
-      <span class="brand-sub">Patching Services — Orange, CA</span>
+      <span class="brand-name">Roman Pro Painting</span>
+      <span class="brand-sub">Painting · Siding · Gutters — Anaheim, CA</span>
     </div>
     <nav class="nav-links" aria-label="Primary">
       <a href="#services">Services</a>
@@ -457,9 +460,9 @@
       <a href="#reviews">Reviews</a>
       <a href="#contact">Contact</a>
     </nav>
-    <a class="nav-cta" href="tel:+17147183316">
+    <a class="nav-cta" href="tel:+19493946857">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      (714) 718-3316
+      (949) 394-6857
     </a>
   </div>
 </header>
@@ -475,21 +478,21 @@
           <rect class="patch" x="14" y="20" width="26" height="26" rx="7" fill="var(--clay)"/>
         </svg>
 
-        <h1>Every wall has a story. We give it a clean ending.</h1>
-        <p class="hero-sub">Drywall, stucco and paint repaired by hand — patched, textured and color-matched until the damage disappears completely. Locally owned in Orange, workmanship guaranteed.</p>
+        <h1>A house that looks cared for, coat to coat.</h1>
+        <p class="hero-sub">Interior and exterior painting, siding and gutter work — prepped, matched and finished by hand so the whole house reads like one clean job. Locally owned in Anaheim, 20 years in the field.</p>
 
         <div class="hero-ctas">
-          <a class="btn-primary" href="tel:+17147183316">
+          <a class="btn-primary" href="tel:+19493946857">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
             Call for a free estimate
           </a>
-          <a class="link-secondary" href="#process">See how a repair goes</a>
+          <a class="link-secondary" href="#process">See how a job goes</a>
         </div>
 
         <div class="hero-badges">
-          <span class="hero-badge">5.0 stars · 59 Yelp reviews</span>
-          <span class="hero-badge">Workmanship guaranteed</span>
-          <span class="hero-badge">Se habla Español</span>
+          <span class="hero-badge">4.9 stars · 57 Yelp reviews</span>
+          <span class="hero-badge">Verified license</span>
+          <span class="hero-badge">ASL proficient</span>
         </div>
       </div>
 
@@ -497,10 +500,10 @@
         <div class="slider" id="baSlider" style="--pos:50%">
           <div class="slide-layer wall-before">
             <svg class="crack-svg" viewBox="0 0 400 320" preserveAspectRatio="none" aria-hidden="true">
-              <path d="M40 40 L120 95 L95 150 L170 190 L150 260" />
-              <path class="hairline" d="M120 95 L160 70" />
-              <path class="hairline" d="M170 190 L220 175" />
-              <path d="M260 30 L300 80 L275 130" />
+              <path class="peel" d="M60 50 Q90 30 130 55 Q120 90 80 95 Q55 80 60 50 Z" />
+              <path class="hairline" d="M180 40 L230 60" />
+              <path class="peel" d="M250 150 Q290 135 310 165 Q295 195 260 190 Q240 170 250 150 Z" />
+              <path class="hairline" d="M60 220 L140 235" />
             </svg>
           </div>
           <div class="slide-layer wall-after layer-after">
@@ -511,11 +514,11 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5"/></svg>
             </div>
           </div>
-          <span class="slider-tag">Damage</span>
-          <span class="slider-tag right">Repaired</span>
-          <input class="slider-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare damaged wall and repaired wall">
+          <span class="slider-tag">Before</span>
+          <span class="slider-tag right">Repainted</span>
+          <input class="slider-range" id="baRange" type="range" min="0" max="100" value="50" aria-label="Drag to compare a worn exterior and a freshly repainted one">
         </div>
-        <p class="slider-caption">Drag the slider — this is the kind of patch that disappears.</p>
+        <p class="slider-caption">Drag the slider — this is the kind of finish that looks factory-clean.</p>
       </div>
     </div>
   </section>
@@ -525,19 +528,19 @@
     <div class="wrap">
       <div class="trust-item reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l2.9 6.6 7.1.6-5.4 4.7 1.7 7L12 17.3 5.7 20.9l1.7-7L2 9.2l7.1-.6z"/></svg>
-        <div><strong>5.0 rating</strong><span>From 59 Yelp reviews</span></div>
+        <div><strong>4.9 rating</strong><span>From 57 Yelp reviews</span></div>
       </div>
       <div class="trust-item reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11z"/></svg>
-        <div><strong>Guaranteed</strong><span>Repairs & workmanship guarantee</span></div>
+        <div><strong>Verified license</strong><span>Licensed &amp; insured, 20 years experience</span></div>
       </div>
       <div class="trust-item reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21h18M5 21V9l7-5 7 5v12M9 21v-6h6v6"/></svg>
-        <div><strong>Locally owned</strong><span>Based in Orange, CA</span></div>
+        <div><strong>Locally owned</strong><span>Based in Anaheim, CA</span></div>
       </div>
       <div class="trust-item reveal">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        <div><strong>Se habla Español</strong><span>Bilingual on every job</span></div>
+        <div><strong>ASL proficient</strong><span>Credit card, Zelle &amp; Venmo accepted</span></div>
       </div>
     </div>
   </section>
@@ -546,20 +549,33 @@
   <section class="section-pad" id="services">
     <div class="wrap">
       <div class="section-head reveal">
-        <h2>Three trades, one seamless finish</h2>
-        <p>Most jobs touch all three — a hole gets patched, textured to match, then painted so the wall looks like it was never opened up.</p>
+        <h2>Painting, siding and gutters — handled as one job</h2>
+        <p>Most projects touch more than one trade — a wall gets painted, the siding behind it gets replaced, the gutters above it get sorted, all on the same visit.</p>
       </div>
 
       <div class="services-grid">
         <article class="service-card reveal">
+          <div class="service-swatch swatch-paint"></div>
+          <div class="service-body">
+            <h3>Exterior Painting</h3>
+            <p>Full exteriors, trim and molding, fascia — prepped, primed and painted to hold up against Southern California sun.</p>
+            <div class="service-tags">
+              <span class="service-tag">Entire exterior</span>
+              <span class="service-tag">Trim &amp; molding</span>
+              <span class="service-tag">Fascia</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="service-card reveal">
           <div class="service-swatch swatch-drywall"></div>
           <div class="service-body">
-            <h3>Drywall Repair &amp; Installation</h3>
-            <p>Holes, water damage, closets torn down to the studs — patched, taped and textured to blend into the surrounding wall.</p>
+            <h3>Interior Painting</h3>
+            <p>Full rooms, interior staining and wall finish installation or replacement, with color matched and cut in clean around every edge.</p>
             <div class="service-tags">
-              <span class="service-tag">Wall patching</span>
-              <span class="service-tag">Texture matching</span>
-              <span class="service-tag">New installation</span>
+              <span class="service-tag">Interior staining</span>
+              <span class="service-tag">Wall finishing</span>
+              <span class="service-tag">Color matching</span>
             </div>
           </div>
         </article>
@@ -567,25 +583,12 @@
         <article class="service-card reveal">
           <div class="service-swatch swatch-stucco"></div>
           <div class="service-body">
-            <h3>Stucco Repair</h3>
-            <p>Cracks, new door and window installs, closed-off dog doors — stucco matched in texture and color so the patch never shows.</p>
+            <h3>Siding &amp; Gutters</h3>
+            <p>Siding installation and replacement alongside gutter services, so the exterior gets handled top to bottom in one pass.</p>
             <div class="service-tags">
-              <span class="service-tag">Crack repair</span>
-              <span class="service-tag">Color matching</span>
-              <span class="service-tag">Plaster work</span>
-            </div>
-          </div>
-        </article>
-
-        <article class="service-card reveal">
-          <div class="service-swatch swatch-paint"></div>
-          <div class="service-body">
-            <h3>Interior &amp; Exterior Painting</h3>
-            <p>Same-day color matching, full rooms or ceilings, and finish coats after a repair so nothing looks touched up.</p>
-            <div class="service-tags">
-              <span class="service-tag">Color matching</span>
-              <span class="service-tag">Interior painting</span>
-              <span class="service-tag">Touch-up coats</span>
+              <span class="service-tag">Siding installation</span>
+              <span class="service-tag">Gutter services</span>
+              <span class="service-tag">Replacement</span>
             </div>
           </div>
         </article>
@@ -597,8 +600,8 @@
   <section class="section-pad" id="process" style="background:var(--plaster-deep)">
     <div class="wrap">
       <div class="section-head reveal">
-        <h2>How a repair goes, start to finish</h2>
-        <p>The same process whether it's a fist-sized hole or a full room — nothing skipped, nothing rushed.</p>
+        <h2>How a job goes, start to finish</h2>
+        <p>The same process whether it's a room, a full exterior, or new siding and gutters — nothing skipped, nothing rushed.</p>
       </div>
 
       <div class="process-list" id="processList">
@@ -606,23 +609,23 @@
         <div class="seam-fill" id="seamFill"></div>
         <div class="process-item">
           <div class="process-num">01</div>
-          <div><h3>Tell us what happened</h3><p>Call, text or send a photo of the damage — cracked stucco, a hole in the drywall, whatever it is.</p></div>
+          <div><h3>Tell us what you need</h3><p>Call, text or send photos of the space — an exterior repaint, worn siding, sagging gutters, whatever it is.</p></div>
         </div>
         <div class="process-item">
           <div class="process-num">02</div>
-          <div><h3>Get a same-day estimate</h3><p>Mauricio comes out and quotes the job in person, usually within a few hours of reaching out.</p></div>
+          <div><h3>Get an in-person estimate</h3><p>Hector walks the property and quotes the job, usually within 48 hours of reaching out.</p></div>
         </div>
         <div class="process-item">
           <div class="process-num">03</div>
-          <div><h3>Patch and texture-match</h3><p>Drywall or stucco is repaired and textured to match what's already on the wall around it.</p></div>
+          <div><h3>Prep and protect</h3><p>Surfaces are prepped, floors and landscaping are covered, and any siding or gutter work is scoped out first.</p></div>
         </div>
         <div class="process-item">
           <div class="process-num">04</div>
-          <div><h3>Paint to match</h3><p>When painting's part of the job, color is mixed and matched on the spot — often the same day.</p></div>
+          <div><h3>Paint, install, finish</h3><p>Color is mixed and matched on site, coats go on clean, and any siding or gutter replacement is installed to match.</p></div>
         </div>
         <div class="process-item">
           <div class="process-num">05</div>
-          <div><h3>Clean handoff</h3><p>Floors and furniture are protected throughout, and the job site is cleaned before the crew leaves.</p></div>
+          <div><h3>Clean handoff</h3><p>The crew does a final walkthrough with you and leaves the property as clean as they found it.</p></div>
         </div>
       </div>
     </div>
@@ -632,37 +635,37 @@
   <section class="section-pad" id="reviews">
     <div class="wrap">
       <div class="reviews-top reveal">
-        <span class="rating-big">5.0</span>
+        <span class="rating-big">4.9</span>
         <div>
           <div class="stars">★★★★★</div>
-          <span class="meta">59 reviews on Yelp</span>
+          <span class="meta">57 reviews on Yelp</span>
         </div>
       </div>
 
       <div class="reviews-grid">
         <div class="review-card reveal">
-          <p>"Fixed a window conversion a previous contractor botched — the patch was invisible when he finished."</p>
-          <footer>James L. — Irvine, CA</footer>
+          <p>"Great communication and reliable work — he even handled some gate and gutter issues along the way."</p>
+          <footer>Jonathan V. — Garden Grove, CA</footer>
         </div>
         <div class="review-card reveal">
-          <p>"Matched our ceiling paint at Home Depot the same day. Done in under two hours and looked perfect."</p>
-          <footer>Paul F. — Rancho Santa Margarita, CA</footer>
+          <p>"His crew stripped decades-old wallpaper off a huge space and kept the whole remodel on schedule — five stars, no hesitation."</p>
+          <footer>Michele S. — Palm Springs, CA</footer>
         </div>
         <div class="review-card reveal">
-          <p>"Explained exactly what needed to happen, then caught and fixed a stucco gap the door installer left behind."</p>
-          <footer>Jennifer B. — Santa Ana, CA</footer>
+          <p>"Restored our home's original exterior colors, gutters and chimney included, with excellent communication the whole way."</p>
+          <footer>Art D. — Irvine, CA</footer>
         </div>
         <div class="review-card reveal">
-          <p>"Closed off a dog door in the wall, inside and out — you'd never know it was ever there."</p>
-          <footer>Carla M. — Huntington Beach, CA</footer>
+          <p>"Repainted an entire rental top to bottom — straight color lines, careful prep, and even fixed a door someone else had botched."</p>
+          <footer>Elisha G. — Anaheim, CA</footer>
         </div>
         <div class="review-card reveal">
-          <p>"This is our third project with his crew. Every time, the patchwork disappears into the wall."</p>
-          <footer>Tiffany P. — Monterey Park, CA</footer>
+          <p>"Professional and consistent from start to finish, and really brought our vision for the house to life."</p>
+          <footer>Elizabeth M. — Orange, CA</footer>
         </div>
         <div class="review-card reveal">
-          <p>"Repaired our fascia and stucco right on the front of the house. Blends in perfectly — you can't tell."</p>
-          <footer>Anna Y. — Santa Ana, CA</footer>
+          <p>"Squeezed in a short-notice job on an 1,800 sq ft home and finished it in two days, fast and done right."</p>
+          <footer>Jennifer W. — Tustin, CA</footer>
         </div>
       </div>
     </div>
@@ -673,12 +676,12 @@
     <div class="wrap">
       <div>
         <h2>Get a free estimate</h2>
-        <p class="contact-sub">Send a photo of the damage or just describe it over the phone. Most estimates happen the same day, in person.</p>
-        <a class="btn-primary" href="tel:+17147183316">
+        <p class="contact-sub">Send a few photos or just describe the job over the phone. In-person appointments are typically available within 48 hours.</p>
+        <a class="btn-primary" href="tel:+19493946857">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-          (714) 718-3316
+          (949) 394-6857
         </a>
-        <p class="contact-note">Typically responds within a few hours · Credit cards &amp; cryptocurrency accepted</p>
+        <p class="contact-note">Typically responds within a few hours · Credit cards, Zelle &amp; Venmo accepted</p>
       </div>
 
       <div class="info-panel">
@@ -689,22 +692,21 @@
             <path d="M17 8c-4 0-7 3-7 7 0 5 7 11 7 11s7-6 7-11c0-4-3-7-7-7zm0 9.5A2.5 2.5 0 1 1 17 12a2.5 2.5 0 0 1 0 5.5z"/>
           </svg>
           <h4>Location</h4>
-          <p class="addr">2001 N Lincoln St<br>Orange, CA 92865<br>Serving the greater Orange area</p>
+          <p class="addr">1519 W Flippen Ct<br>Anaheim, CA 92802<br>Serving the greater Anaheim area</p>
         </div>
 
         <div class="info-block">
           <h4>Hours</h4>
-          <div class="hours-row"><span>Monday</span><span>8:00 AM – 6:30 PM</span></div>
-          <div class="hours-row"><span>Tuesday – Friday</span><span>8:00 AM – 6:00 PM</span></div>
-          <div class="hours-row"><span>Saturday – Sunday</span><span>8:00 AM – 4:00 PM</span></div>
+          <div class="hours-row"><span>Monday – Saturday</span><span>7:00 AM – 6:00 PM</span></div>
+          <div class="hours-row"><span>Sunday</span><span>Closed</span></div>
         </div>
       </div>
     </div>
 
     <div class="footer-bar">
       <div class="wrap">
-        <span>Mauricio Mata Patching Services · Orange, CA</span>
-        <a href="http://mauriciopatching.com" target="_blank" rel="noopener">mauriciopatching.com</a>
+        <span>Roman Pro Painting · Anaheim, CA</span>
+        <a href="https://www.yelp.com/biz/roman-pro-painting-anaheim" target="_blank" rel="noopener">View on Yelp</a>
       </div>
     </div>
   </section>
@@ -776,7 +778,7 @@
     }
 
     // a seam of clay fills in as the process steps scroll past, like a
-    // crack being worked closed
+    // fresh coat setting in as you go
     function updateSeam(){
       if(!processList || !seamFill) return;
       var rect = processList.getBoundingClientRect();
